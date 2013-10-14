@@ -48,9 +48,10 @@ Provided protocoles (see deep protocoles) :
 	.patch({ name:"George" }, { id:"33" })
 	.log();
 
-	// call rpc method named "methodName" with the object { arg1:"myValue" } passed as argument
+	// call rpc method named "methodName" on ressource with id = "id22234545"
+	// with the object { arg1:"myValue" } passed as argument
 	deep.store("myprotocole")
-	.rpc("methodName", { arg1:"myValue" })
+	.rpc("methodName", { arg1:"myValue" }, "id22234545")
 	.log();
 
 	// bulk call allows multiple operations with one call
