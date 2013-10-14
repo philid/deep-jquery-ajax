@@ -24,7 +24,7 @@ Provided protocoles (see deep protocoles) :
 
 	require("deep-jquery-ajax/json").createDefault();
 
-	deep("json::/my/file.json")			// relative to root server path  e.g. http://yourdomain.com/
+	deep("json::/my/file.json")	// relative to root server path  e.g. http://yourdomain.com/
 	.log();
 
 	//...
@@ -38,19 +38,23 @@ Provided protocoles (see deep protocoles) :
 	deep("myprotocole::33")
 	.log();
 
+	// put is replacing the entire object
 	deep.store("myprotocole")
-	.put({ hello:"world" }, { id:"33" }) // put is replacing the entire object
+	.put({ hello:"world" }, { id:"33" })
 	.log();
 
+	// patch update only the fields that are sended
 	deep.store("myprotocole")
-	.patch({ name:"George" }, { id:"33" }) // patch update only the fields that are sended
+	.patch({ name:"George" }, { id:"33" })
 	.log();
 
+	// call rpc method named "methodName" with the object { arg1:"myValue" } passed as argument
 	deep.store("myprotocole")
-	.rpc("methodName", { arg1:"myValue" }) // call rpc method named "methodName" with the object passed { arg1:"myValue" } as argument
+	.rpc("methodName", { arg1:"myValue" })
 	.log();
 
-	deep.store("myprotocole") // bulk call allows multiple operations with one call
+	// bulk call allows multiple operations with one call
+	deep.store("myprotocole")
 	.bulk([
 	    {to:"id1381690769563", method:"patch", body:{name:"updated 2"}},
 	    {to:"id1381690769563", method:"get"}
